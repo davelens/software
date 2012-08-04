@@ -3,9 +3,6 @@
 # The helper contains a number of methods to help us install our software
 . helper.sh
 
-# Let's give our password first so we don't get bugged halfway through the install
-su $USER
-
 # Install homebrew
 /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 brew doctor
@@ -24,7 +21,7 @@ brew install irssi
 brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
 
 # Download and install my dotfiles
-git clone git@github.com:davelens/dotfiles ~/.dotfiles && chmod +x ~/.dotfiles/install.sh && /.~/.dotfiles/install.sh
+git clone git@github.com:davelens/dotfiles ~/.dotfiles && cd ~/.dotfiles && chmod +x install.sh && ./install.sh && cd -
 
 # MySQL - databases are run with your user account
 brew install mysql
@@ -38,7 +35,7 @@ install mysql/.my.cnf ~/.my.cnf
 brew tap josegonzalez/homebrew-php
 brew install php53 --with-mysql --with-intl --with-imap
 install_template php/php.ini.template /usr/local/etc/php/5.3/php.ini
-PHP_VERSION=`php -v | awk '{print $2}' | head -1`
+PHP_VERSION=`/usr/local/bin/php -v | awk '{print $2}' | head -1`
 
 # fix pear
 sudo pear config-set auto_discover 1
