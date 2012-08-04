@@ -1,0 +1,6 @@
+[client]
+user={{USER}}
+password=root
+
+[mysql]
+default-character-set='utf8'
