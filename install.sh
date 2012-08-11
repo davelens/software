@@ -16,6 +16,7 @@ brew install git
 brew install wget
 brew install tmux
 brew install irssi
+brew install ack
 
 # Vim 7.3.5+ with python+ruby support
 brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
@@ -47,15 +48,15 @@ sudo pear channel-discover pear.phpunit.de
 sudo pear install PHP_Codesniffer
 
 # install
-pecl install oauth
-pecl install apc
+sudo pecl install oauth
+sudo pecl install apc
 
 # Use Mac OS X's apache, but install a custom conf
 install_template_as_root apache/httpd.conf.template /etc/apache2/httpd.conf
+sed -i '' "s/{{PHP_VERSION}}/$PHP_VERSION/" $CURRENTDIR/apache/httpd.conf
 
 echo "Make MySQL load on startup: "
 echo ""
 echo "Set MySQL password by using: "
 echo "  mysqladmin -u root password 'new-password'"
 echo "  mysqladmin -u root -h $(hostname -f) password 'new-password'"
-echo "add LoadModule php5_module    /usr/local/Cellar/php53/$PHP_VERSION/libexec/apache2/libphp5.so into /etc/apache2/httpd.conf"
