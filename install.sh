@@ -19,6 +19,13 @@ if [[ $(which gcc) == "" ]]; then
 	exit 1
 fi
 
+# @todo check if an id_rsa key is set; we'll need it for github auth
+if [[ ! -f ~/.ssh/id_rsa ]]; then
+	echo "$(tput setaf 9)"
+	echo "ERROR: You do not have an SSH key set yet. You will need one that is linked to your GitHub account to proceed."
+	exit 1
+fi
+
 echo "$(tput setaf 10)"
 echo "Starting installation..."
 echo "$(tput sgr0)"
@@ -39,6 +46,7 @@ brew install irssi
 brew install ack
 
 # Vim 7.3.5+ with python+ruby support
+brew tap homebrew/dupes
 brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
 
 # Download and install my dotfiles
