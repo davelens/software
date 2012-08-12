@@ -3,6 +3,26 @@
 # The helper contains a number of methods to help us install our software
 . helper.sh
 
+if [[ $(which gcc) == "" ]]; then
+	echo "$(tput setaf 9)"
+	echo "ERROR: You do not have Xcode or GCC installed. At least the commandline tools for Xcode are required to proceed."
+	echo -n "$(tput setaf 11)Would you like to download the CLI tools for Mac OS X Lion?$(tput sgr0) $(tput bold)(y/n)$(tput setaf 11):$(tput sgr0) "
+	read downloadGCC
+
+	if [ $(lowercase $downloadGCC) == "y" ]; then
+		echo "Opening Safari..."
+		open -a Safari "https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_os_x_lion_for_xcode__august_2012/command_line_tools_for_xcode_os_x_lion_aug_2012.dmg"
+	fi
+
+	# exit installer here
+	echo "Please install the CLI tools for Mac OS X, then run this installer again."
+	exit 1
+fi
+
+echo "$(tput setaf 10)"
+echo "Starting installation..."
+echo "$(tput sgr0)"
+
 # Install homebrew
 /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 brew doctor
