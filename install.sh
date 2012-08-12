@@ -29,7 +29,7 @@ brew install mysql
 # Set up databases to run AS YOUR USER ACCOUNT with:
 unset TMPDIR
 mysql_install_db --verbose --user=$USER --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
-install mysql/.my.cnf ~/.my.cnf
+install mysql/.my.cnf.template ~/.my.cnf
 
 # install PHP
 brew tap josegonzalez/homebrew-php
