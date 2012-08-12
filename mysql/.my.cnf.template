@@ -1,5 +1,9 @@
 [client]
-user={{USER}}
+user = root
 
 [mysql]
-default-character-set='utf8'
+prompt = 'mysql (\u@\d)> '
+
+[mysqld]
+collation-server = utf8_general_ci
+character-set-server = utf8

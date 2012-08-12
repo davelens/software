@@ -1,2 +1,3 @@
 apache/httpd.conf
 php/php.ini
+mysql/.my.cnf
