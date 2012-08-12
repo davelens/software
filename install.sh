@@ -31,22 +31,20 @@ unset TMPDIR
 mysql_install_db --verbose --user=$USER --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 install mysql/.my.cnf.template ~/.my.cnf
 
-# install PHP
+# PHP
 brew tap josegonzalez/homebrew-php
 brew install php53 --with-mysql --with-intl --with-imap
 install_template php/php.ini.template /usr/local/etc/php/5.3/php.ini
 PHP_VERSION=`/usr/local/bin/php -v | awk '{print $2}' | head -1`
 
-# fix pear
+# PEAR with PHPUnit and CodeSniffer
 sudo pear config-set auto_discover 1
 sudo pear update-channels
 sudo pear upgrade
-
-# install pear packages
 sudo pear channel-discover pear.phpunit.de
 sudo pear install PHP_Codesniffer
 
-# install
+# oauth and apc
 sudo pecl install oauth
 sudo pecl install apc
 
