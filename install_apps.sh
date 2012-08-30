@@ -15,7 +15,7 @@ if [ $(lowercase $downloadDMGFiles) == "y" ]; then
 	if [ ! -d ~/Applications/iTerm.app ]; then
 		wget -O ~/Downloads/iterm2.zip http://iterm2.googlecode.com/files/iTerm2-1_0_0_20120726.zip && unzip ~/Downloads/iterm2.zip && mv iTerm.app ~/Applications/iTerm.app && rm *iTerm2*
 	else
-		echo "$(tput setaf 9)iTerm2 is already installed.$(tput sgr0)"
+		echo "$(tput setaf 10)iTerm2 is already installed.$(tput sgr0)"
 	fi
 
 	# Download a bunch of .dmg files
@@ -24,21 +24,21 @@ if [ $(lowercase $downloadDMGFiles) == "y" ]; then
 	if [ ! -d ~/Applications/Alfred.app ]; then
 		download_dmg "$(curl -s http://www.alfredapp.com | grep '.dmg')" ~/Downloads/alfred.dmg
 	else
-		echo "$(tput setaf 9)Alfred is already installed.$(tput sgr0)"
+		echo "$(tput setaf 10)Alfred is already installed.$(tput sgr0)"
 	fi
 
 	# Latest Firefox
 	if [ ! -d ~/Applications/Firefox.app ]; then
 		download_dmg "$(curl -s http://www.mozilla.org/en-US/firefox/fx/?from=getfirefox#desktop | grep 'Mac OS X')" ~/Downloads/firefox.dmg
 	else
-		echo "$(tput setaf 9)Firefox is already installed.$(tput sgr0)"
+		echo "$(tput setaf 10)Firefox is already installed.$(tput sgr0)"
 	fi
 
 	# MySQL Workbench
 	if [ ! -d ~/Applications/MySQLWorkbench.app ]; then
 		wget -O ~/Downloads/mysql-workbench.dmg http://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-gpl-5.2.41-osx-i686.dmg
 	else
-		echo "$(tput setaf 9)MySQLWorkbench is already installed.$(tput sgr0)"
+		echo "$(tput setaf 10)MySQLWorkbench is already installed.$(tput sgr0)"
 	fi
 else
 	echo ""
