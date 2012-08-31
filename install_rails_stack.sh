@@ -14,9 +14,9 @@ fi
 # Load RVM once
 . "$HOME/.rvm/scripts/rvm"
 
-# Install Ruby 1.9.3-p125 with RVM, and make it the default ruby
-rvm install 1.9.3-p125
-rvm use ruby-1.9.3-p125 --default
+# Install Ruby 1.9.3 with RVM, and make it the default ruby
+rvm install 1.9.3
+rvm use ruby-1.9.3 --default
 
 # Install Ruby On Rails + bundler
 gem install rails bundler
@@ -26,6 +26,6 @@ echo "Finished installing RVM, Ruby, and RoR!"
 echo ""
 echo "$(tput setaf 11)"
 echo "IMPORTANT: Put the following line into your .bashrc or .bash_profile:"
-echo "\n"
+echo ""
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"'
 echo "$(tput sgr0)"
