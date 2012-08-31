@@ -3,6 +3,11 @@
 # Include a number of methods that are used throughout the installations
 . helper.sh
 
+# I am aware of the homebrew/dupes version of the GCC, but have not yet tested it.
+#brew update
+#brew tap homebrew/homebrew-dupes
+#brew install apple-gcc42
+
 if [[ $(which gcc) == "" ]]; then
 	echo "$(tput setaf 9)"
 	echo "ERROR: You do not have Xcode or GCC installed. At least the commandline tools for Xcode are required to proceed."
