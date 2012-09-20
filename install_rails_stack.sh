@@ -21,6 +21,9 @@ rvm use ruby-1.9.3 --default
 # Install Ruby On Rails + bundler
 gem install rails bundler
 
+# Install capistrano
+gem install capistrano
+
 echo "$(tput setaf 10)"
 echo "Finished installing RVM, Ruby, and RoR!"
 echo ""
