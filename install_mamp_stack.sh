@@ -31,9 +31,6 @@ sudo pecl install apc
 install_template_as_root apache/httpd.conf.template /etc/apache2/httpd.conf
 sed -i '' "s/{{PHP_VERSION}}/$PHP_VERSION/" $CURRENTDIR/apache/httpd.conf
 
-# Query the user if he/she wants to download/install additional apps
-. install_apps.sh
-
 echo "$(tput setaf 11)"
 echo "###################################################################"
 echo "# Set MySQL password by using:"
