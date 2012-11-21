@@ -8,10 +8,7 @@ brew install wget
 brew install tmux
 brew install irssi
 brew install ack
-
-# Vim 7.3.5+ with python+ruby support
-brew tap homebrew/dupes
-brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
+brew install vim
 
 # Use brew to install mysql, php+apc, pear, and configure Apache/PHP
 . install_mamp_stack.sh
