@@ -3,26 +3,6 @@
 # Include a number of methods that are used throughout the installations
 . helper.sh
 
-# I am aware of the homebrew/dupes version of the GCC, but have not yet tested it.
-#brew update
-#brew tap homebrew/homebrew-dupes
-#brew install apple-gcc42
-
-if [[ $(which gcc) == "" ]]; then
-	echo "$(tput setaf 9)"
-	echo "ERROR: You do not have Xcode or GCC installed. At least the commandline tools for Xcode are required to proceed."
-	echo -n "$(tput setaf 11)Would you like to download the CLI tools for Mac OS X Lion?$(tput sgr0) $(tput bold)(y/n)$(tput setaf 11):$(tput sgr0) "
-	read downloadGCC
-
-	if [ $(lowercase $downloadGCC) == "y" ]; then
-		echo "Opening Safari..."
-		open -a Safari "https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_os_x_lion_for_xcode__august_2012/command_line_tools_for_xcode_os_x_lion_aug_2012.dmg"
-	fi
-
-	echo "Please install the CLI tools for Mac OS X, then run this installer again."
-	exit 1
-fi
-
 # Check if an id_rsa key is set; we'll need it for github auth
 if [[ ! -f ~/.ssh/id_rsa ]]; then
 	echo "$(tput setaf 9)"
@@ -42,8 +22,9 @@ if [[ $(which brew) == "" ]]; then
 	brew update
 	brew upgrade
 
-	# autoconf is need for various brew recipes, and mercurial is needed for git
-	brew install autoconf
+	# Install the GCC and git
+	brew tap homebrew/dupes
+	brew install autoconf automake apple-gcc42
 	brew install mercurial
 	brew install git
 fi
