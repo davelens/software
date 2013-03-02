@@ -13,7 +13,8 @@ if [ $(lowercase $downloadDMGFiles) == "y" ]; then
 
 	# Download and install iTerm2
 	if [ ! -d ~/Applications/iTerm.app ]; then
-		wget -O ~/Downloads/iterm2.zip http://iterm2.googlecode.com/files/iTerm2-1_0_0_20120726.zip && unzip ~/Downloads/iterm2.zip && mv iTerm.app ~/Applications/iTerm.app && rm *iTerm2*
+		wget -O ~/Downloads/iterm2.zip http://iterm2.googlecode.com/files/iTerm2-1_0_0_20130210.zip && unzip ~/Downloads/iterm2.zip && mv iTerm.app ~/Applications/iTerm.app
+		rm *iTerm2* ~/Downloads/iterm2.zip
 	else
 		echo "$(tput setaf 10)iTerm2 is already installed.$(tput sgr0)"
 	fi
@@ -22,7 +23,8 @@ if [ $(lowercase $downloadDMGFiles) == "y" ]; then
 
 	# Alfred
 	if [ ! -d ~/Applications/Alfred.app ]; then
-		download_dmg "$(curl -s http://www.alfredapp.com | grep '.dmg')" ~/Downloads/alfred.dmg
+		download_dmg "$(curl -s http://www.alfredapp.com | grep '.zip')" ~/Downloads/alfred.zip && unzip ~/Downloads/alfred.zip && mv Alfred.app ~/Applications/Alfred.app
+		rm *Alfred* ~/Downloads/alfred.zip
 	else
 		echo "$(tput setaf 10)Alfred is already installed.$(tput sgr0)"
 	fi
@@ -43,4 +45,3 @@ if [ $(lowercase $downloadDMGFiles) == "y" ]; then
 else
 	echo ""
 fi
-
