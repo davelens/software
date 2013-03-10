@@ -9,6 +9,7 @@ brew install mysql
 unset TMPDIR
 mysql_install_db --verbose --user=$USER --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 install mysql/.my.cnf.template ~/.my.cnf
+sudo chmod -R 777 /usr/local/var/mysql
 
 # PHP
 brew tap josegonzalez/homebrew-php
