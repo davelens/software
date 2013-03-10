@@ -24,8 +24,9 @@ if [[ $(which brew) == "" ]]; then
 
 	# Install the GCC and git
 	brew tap homebrew/dupes
-	brew install autoconf automake apple-gcc42
+	brew install autoconf automake
 	brew install mercurial
 	brew install git
+	brew install wget
 fi
 
