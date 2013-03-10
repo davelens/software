@@ -25,6 +25,7 @@ if [[ $(which brew) == "" ]]; then
 	# Install the GCC and git
 	brew tap homebrew/dupes
 	brew install autoconf automake
+	brew install libtool libyaml libxml2 libxslt libksba openssl sqlite
 	brew install mercurial
 	brew install git
 	brew install wget
