@@ -12,7 +12,7 @@ install mysql/.my.cnf.template ~/.my.cnf
 
 # PHP
 brew tap josegonzalez/homebrew-php
-brew install php53 --with-mysql --with-intl --with-imap
+brew install php53-intl --with-mysql --with-imap
 install_template php/php.ini.template /usr/local/etc/php/5.3/php.ini
 PHP_VERSION=`/usr/local/bin/php -v | awk '{print $2}' | head -1`
 
