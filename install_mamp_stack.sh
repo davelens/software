@@ -32,6 +32,10 @@ sudo pecl install apc
 install_template_as_root apache/httpd.conf.template /etc/apache2/httpd.conf
 sed -i '' "s/{{PHP_VERSION}}/$PHP_VERSION/" $CURRENTDIR/apache/httpd.conf
 
+# Install POW so we can use project.company.dev without editing /etc/hosts
+curl get.pow.cx | sh
+install_template pow/powconfig $HOME/.powconfig
+
 echo "$(tput setaf 11)"
 echo "###################################################################"
 echo "# Set MySQL password by using:"
