@@ -24,6 +24,10 @@ gem install rails bundler
 # Install capistrano
 gem install capistrano
 
+# Install imagemagick
+# This fixes the issue described here: https://github.com/rmagick/rmagick/issues/36
+brew install imagemagick --disable-openmp
+
 echo "$(tput setaf 10)"
 echo "Finished installing RVM, Ruby, and RoR!"
 echo ""
