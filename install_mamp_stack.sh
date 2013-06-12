@@ -11,9 +11,11 @@ mysql_install_db --verbose --user=$USER --basedir="$(brew --prefix mysql)" --dat
 install mysql/.my.cnf.template ~/.my.cnf
 sudo chmod -R 777 /usr/local/var/mysql
 
-# PHP
+# PHP 5.3 with intl support + memcache
+# The *.so files for these extensions will load from a separate .ini file located in /usr/local/etc/php/5.3/conf.d/
 brew tap josegonzalez/homebrew-php
 brew install php53-intl --with-mysql --with-imap
+brew install php53-memcache
 install_template php/php.ini.template /usr/local/etc/php/5.3/php.ini
 PHP_VERSION=`/usr/local/bin/php -v | awk '{print $2}' | head -1`
 
