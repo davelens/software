@@ -6,5 +6,6 @@ password = root
 prompt = 'mysql (\u@\d)> '
 
 [mysqld]
+sql_mode = "NO_ENGINE_SUBSTITUTION"
 collation-server = utf8_general_ci
 character-set-server = utf8
