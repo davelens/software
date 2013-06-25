@@ -15,8 +15,8 @@ fi
 . "$HOME/.rvm/scripts/rvm"
 
 # Install Ruby 1.9.3 with RVM, and make it the default ruby
-rvm install 2.0.0
-rvm use ruby-2.0.0 --default
+rvm install 1.9.3
+rvm use ruby-1.9.3 --default
 
 # Install Ruby On Rails + bundler
 gem install rails bundler
