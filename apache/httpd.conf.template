@@ -1,10 +1,10 @@
 ServerRoot "/usr"
-Listen 80
+Listen 8080
 
 User {{USER}}
 Group staff
 
-ServerName 127.0.0.1:80
+ServerName 127.0.0.1:8080
 ServerAdmin admin@localhost
 
 DefaultType text/plain
@@ -142,11 +142,11 @@ LockFile "/private/var/log/apache2/accept.lock"
 #Include /etc/apache2/other/*.conf
 
 # Use name-based virtual hosting.
-NameVirtualHost *:80
+NameVirtualHost *:8080
 UseCanonicalName Off
 
 # ~/Sites/ vhost configuration - sends foo.bar.dev to ~/Sites/bar/foo
-<VirtualHost *:80>
+<VirtualHost *:8080>
 	VirtualDocumentRoot /Users/{{USER}}/Sites/%2/%1
 
 	<Directory "/Users/{{USER}}/Sites">

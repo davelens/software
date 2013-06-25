@@ -36,7 +36,6 @@ sed -i '' "s/{{PHP_VERSION}}/$PHP_VERSION/" $CURRENTDIR/apache/httpd.conf
 
 # Install POW so we can use project.company.dev without editing /etc/hosts
 curl get.pow.cx | sh
-install_template pow/powconfig $HOME/.powconfig
 
 echo "$(tput setaf 11)"
 echo "###################################################################"

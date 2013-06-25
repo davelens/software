@@ -28,6 +28,9 @@ gem install capistrano
 # This fixes the issue described here: https://github.com/rmagick/rmagick/issues/36
 brew install imagemagick --disable-openmp
 
+# Install POW so we can use project.dev after symlinking
+curl get.pow.cx | sh
+
 echo "$(tput setaf 10)"
 echo "Finished installing RVM, Ruby, and RoR!"
 echo ""
