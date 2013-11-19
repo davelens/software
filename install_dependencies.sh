@@ -28,6 +28,7 @@ if [[ $(which brew) == "" ]]; then
 	brew install libtool libyaml libxml2 libxslt libksba openssl sqlite
 	brew install mercurial
 	brew install git
+	brew install cmake
 	brew install wget
 fi
 
