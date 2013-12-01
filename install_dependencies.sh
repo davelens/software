@@ -22,7 +22,7 @@ if [[ $(which brew) == "" ]]; then
 	brew update
 	brew upgrade
 
-	# Install the GCC and git
+	# Install the git and compilation dependencies & tools
 	brew tap homebrew/dupes
 	brew install autoconf automake
 	brew install libtool libyaml libxml2 libxslt libksba openssl sqlite
