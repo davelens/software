@@ -22,6 +22,12 @@ if [[ $(which brew) == "" ]]; then
 	brew update
 	brew upgrade
 
+  # Install CLI tools
+  if [[ $(which gcc) != "" ]]; then
+    brew tap homebrew/versions
+    brew install gcc48
+  fi
+
 	# Install the git and compilation dependencies & tools
 	brew tap homebrew/dupes
 	brew install autoconf automake
