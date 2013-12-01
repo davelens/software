@@ -4,7 +4,6 @@
 . install_dependencies.sh
 
 # Install misc. software
-brew install wget
 brew install tmux
 brew install irssi
 brew install ack
