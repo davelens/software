@@ -10,6 +10,7 @@ unset TMPDIR
 mysql_install_db --verbose --user=$USER --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 install mysql/.my.cnf.template ~/.my.cnf
 sudo chmod -R 777 /usr/local/var/mysql
+mysql_secure_installation
 
 # PHP 5.3 with intl support + memcache
 # The *.so files for these extensions will load from a separate .ini file located in /usr/local/etc/php/5.3/conf.d/
@@ -38,9 +39,5 @@ sed -i '' "s/{{PHP_VERSION}}/$PHP_VERSION/" $CURRENTDIR/apache/httpd.conf
 curl get.pow.cx | sh
 
 echo "$(tput setaf 11)"
-echo "###################################################################"
-echo "# Set MySQL password by using:"
-echo "#  mysqladmin -u root password 'new-password'"
-echo "#  mysqladmin -u root -h $(hostname -f) password 'new-password'"
-echo "###################################################################"
+echo "Finished installing PHP and MySQL"
 echo "$(tput sgr0)"
