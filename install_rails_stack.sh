@@ -15,8 +15,8 @@ fi
 . "$HOME/.rvm/scripts/rvm"
 
 # Install Ruby 1.9.3 with RVM, and make it the default ruby
-rvm install 1.9.3
-rvm use ruby-1.9.3 --default
+rvm install 2.0.0
+rvm use ruby-2.0.0 --default
 
 # Install Ruby On Rails + bundler
 gem install rails bundler
@@ -33,6 +33,7 @@ curl get.pow.cx | sh
 
 echo "$(tput setaf 10)"
 echo "Finished installing RVM, Ruby, and RoR!"
+echo "If Guard is crashing on you in a Rails project, try a bundle update."
 echo ""
 echo "$(tput setaf 11)"
 echo "IMPORTANT: Put the following line into your .bashrc or .bash_profile:"
