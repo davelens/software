@@ -17,18 +17,22 @@ if [[ $(which brew) == "" ]]; then
 	echo "Installing Homebrew..."
 	echo "$(tput sgr0)"
 
-	/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+	/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
 	brew doctor
 	brew update
 	brew upgrade
 
-	# Install the GCC and git
+  # Install CLI tools
+  if [[ $(which gcc) != "" ]]; then
+    brew tap homebrew/versions
+    brew install gcc48
+  fi
+
+	# Install the git and compilation dependencies & tools
 	brew tap homebrew/dupes
 	brew install autoconf automake
 	brew install libtool libyaml libxml2 libxslt libksba openssl sqlite
 	brew install mercurial
 	brew install git
 	brew install cmake
-	brew install wget
 fi
-
