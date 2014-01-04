@@ -3,25 +3,27 @@
 # Make sure we have homebrew etc. installed
 . install_dependencies.sh
 
-# Install RVM
-bash -s master < <(curl -L https://get.rvm.io)
+# Install RBENV
+brew install rbenv
+brew install rbenv ruby-build
 
-# Check if RVM installed correctly. We brutally exit if it did not install
-if [[ ! -s "$HOME/.rvm/scripts/rvm" ]]; then
+# Check if RBENV installed correctly. We brutally exit if it did not install
+if [[ ! -s "$HOME/.rbenv/version" ]]; then
 	exit 1
 fi
 
-# Load RVM once
-. "$HOME/.rvm/scripts/rvm"
+# Initialize RBENV once
+eval "$(/usr/local/bin/rbenv init -)"
 
-# Install Ruby 1.9.3 with RVM, and make it the default ruby
-rvm install 1.9.3
-rvm use ruby-1.9.3 --default
+# Install Ruby 2.0.0 with RBENV, and make it the default ruby
+rbenv install 2.0.0-p247
+rbenv global 2.0.0-p247 --default
 
-# Install Ruby On Rails + bundler
-gem install rails bundler
+# Also install Ruby 1.9.3 for legacy projects
+rbenv install 1.9.3-p448
 
-# Install capistrano
+# Install global gems (all others are project-specific, hence RBENV)
+gem install bundler
 gem install capistrano
 
 # Install imagemagick
@@ -32,10 +34,10 @@ brew install imagemagick --disable-openmp
 curl get.pow.cx | sh
 
 echo "$(tput setaf 10)"
-echo "Finished installing RVM, Ruby, and RoR!"
+echo "Finished installing RBENV, Ruby, and RoR!"
 echo ""
 echo "$(tput setaf 11)"
 echo "IMPORTANT: Put the following line into your .bashrc or .bash_profile:"
 echo ""
-echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"'
+echo 'eval "$(rbenv init -)"'
 echo "$(tput sgr0)"
