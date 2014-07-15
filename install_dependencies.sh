@@ -39,4 +39,5 @@ if [[ $(which brew) == "" ]]; then
   brew install mercurial
   brew install git
   brew install cmake
+  brew install wget
 fi
