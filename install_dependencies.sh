@@ -28,6 +28,10 @@ if [[ $(which brew) == "" ]]; then
     brew install gcc48
   fi
 
+  # Install brew-cask
+  brew tap caskroom/cask
+  brew install brew-cask
+
 	# Install the git and compilation dependencies & tools
 	brew tap homebrew/dupes
 	brew install autoconf automake
