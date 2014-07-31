@@ -40,4 +40,5 @@ if [[ $(which brew) == "" ]]; then
   brew install git
   brew install cmake
   brew install wget
+  brew install hub
 fi
