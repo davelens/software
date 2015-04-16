@@ -3,8 +3,7 @@
 # Make sure we have homebrew etc. installed
 . install_dependencies.sh
 
-# Install RBENV
-brew install rbenv
+# Install RBENV and ruby-build
 brew install rbenv ruby-build
 
 # Check if RBENV installed correctly. We brutally exit if it did not install
@@ -16,15 +15,14 @@ fi
 eval "$(/usr/local/bin/rbenv init -)"
 
 # Install Ruby 2.0.0 with RBENV, and make it the default ruby
-rbenv install 2.0.0-p247
-rbenv global 2.0.0-p247 --default
+rbenv install 2.2.0
+rbenv global 2.2.0 --default
 
 # Also install Ruby 1.9.3 for legacy projects
 rbenv install 1.9.3-p448
 
-# Install global gems (all others are project-specific, hence RBENV)
+# Install global bundler
 gem install bundler
-gem install capistrano
 
 # Install imagemagick
 # This fixes the issue described here: https://github.com/rmagick/rmagick/issues/36
