@@ -9,16 +9,14 @@ brew install mysql
 unset TMPDIR
 mysql_install_db --verbose --user=$USER --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 install mysql/.my.cnf.template ~/.my.cnf
-sudo chmod -R 777 /usr/local/var/mysql
 mysql_secure_installation
 
 # PHP 5.3 with intl support + memcache
 # The *.so files for these extensions will load from a separate .ini file located in /usr/local/etc/php/5.3/conf.d/
 brew tap josegonzalez/homebrew-php
-brew install php53-intl --with-mysql --with-imap
-brew install php53-memcache
-install_template php/php.ini.template /usr/local/etc/php/5.3/php.ini
-PHP_VERSION=`/usr/local/bin/php -v | awk '{print $2}' | head -1`
+brew install php54-intl --with-mysql --with-imap
+brew install php54-memcache
+install_template php/php.ini.template /usr/local/etc/php/5.4/php.ini
 
 # PEAR with PHPUnit and CodeSniffer
 sudo pear config-set auto_discover 1
@@ -32,6 +30,7 @@ sudo pecl install oauth
 sudo pecl install apc
 
 # Use Mac OS X's apache, but install a custom conf
+PHP_VERSION=`/usr/local/bin/php -v | awk '{print $2}' | head -1`
 install_template_as_root apache/httpd.conf.template /etc/apache2/httpd.conf
 sed -i '' "s/{{PHP_VERSION}}/$PHP_VERSION/" $CURRENTDIR/apache/httpd.conf
 
