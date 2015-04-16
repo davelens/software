@@ -17,7 +17,7 @@ if [[ $(which brew) == "" ]]; then
   echo "Installing Homebrew..."
   echo "$(tput sgr0)"
 
-  /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+  /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew doctor
   brew update
   brew upgrade
