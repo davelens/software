@@ -4,6 +4,7 @@
 . install_dependencies.sh
 
 # Install misc. software
+brew install reattach-to-user-namespace
 brew install tmux
 brew install irssi
 brew install ack
