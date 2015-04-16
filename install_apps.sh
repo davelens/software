@@ -11,7 +11,6 @@ read downloadDMGFiles
 if [ $(lowercase $downloadDMGFiles) == "y" ]; then
   echo 'Now would be a good time to grab a coffee, this will probably take a while.'
   brew cask install alfred
-  brew cask alfred link # Makes sure applications installed by cask are found by Alfred
   brew cask install firefox
   brew cask install iterm2
   brew cask install onepassword
