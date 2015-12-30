@@ -41,4 +41,5 @@ if [[ $(which brew) == "" ]]; then
   brew install cmake
   brew install wget
   brew install hub
+  brew install bash-completion
 fi
