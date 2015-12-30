@@ -14,9 +14,9 @@ fi
 # Initialize RBENV once
 eval "$(/usr/local/bin/rbenv init -)"
 
-# Install Ruby 2.2.0 with RBENV, and make it the default ruby
-rbenv install 2.2.0
-rbenv global 2.2.0 --default
+# Install Ruby 2.2.2 with RBENV, and make it the default ruby
+rbenv install 2.2.2
+rbenv global 2.2.2 --default
 
 # Also install Ruby 1.9.3 for legacy projects
 rbenv install 1.9.3-p448
