@@ -1,8 +1,6 @@
 #!/bin/bash
 
-#########################################
-# Methods by Tijs Verkoyen
-#########################################
+### remove_or_backup, install, install_template, install_template_as_root are originally written by @tijsverkoyen
 
 # grab the current dir
 CURRENTDIR=$(pwd)
@@ -61,32 +59,11 @@ function install_template_as_root {
 	fi
 }
 
-
-
-
-#########################################
-# Methods by Dave Lens
-#########################################
-
 function lowercase()
 {
 	if [ -n "$1" ]; then
 		echo "$1" | tr "[:upper:]" "[:lower:]"
 	else
 	    cat - | tr "[:upper:]" "[:lower:]"
-	fi
-}
-
-# Accepts a bunch of anchor links and downloads the first matching file
-# Example: download_dmg "$(curl -s http://www.alfredapp.com | grep '.dmg')" ~/Downloads/alfred.dmg
-function download_dmg {
-	if [[ -n $1 ]]
-	then
-		if [[ -n $2 ]]
-		then
-			wget -O $2 $(echo -e $1 | grep -o '<a href=["'"'"'][^"'"'"']*["'"'"']' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' | sed 's/\&amp;/\&/g' | head -1)
-		else
-			wget $(echo -e $1 | grep -o '<a href=["'"'"'][^"'"'"']*["'"'"']' | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' | sed 's/\&amp;/\&/g' | head -1)
-		fi
 	fi
 }
