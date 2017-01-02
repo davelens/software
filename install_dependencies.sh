@@ -30,7 +30,6 @@ if [[ $(which brew) == "" ]]; then
 
   # Install brew-cask
   brew tap caskroom/cask
-  brew install brew-cask
 
   # Install the git and compilation dependencies & tools
   brew tap homebrew/dupes
