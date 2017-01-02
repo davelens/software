@@ -13,7 +13,7 @@ if [ $(lowercase $install_apps) == "y" ]; then
   brew cask install alfred
   brew cask install firefox
   brew cask install iterm2
-  brew cask install onepassword
+  brew cask install 1password
   brew cask install libreoffice
   brew cask install spotify
   brew cask install unrarx
