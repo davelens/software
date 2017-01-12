@@ -11,28 +11,29 @@ mysql_install_db --verbose --user=$USER --basedir="$(brew --prefix mysql)" --dat
 install mysql/.my.cnf.template ~/.my.cnf
 mysql_secure_installation
 
-# PHP 5.3 with intl support + memcache
-# The *.so files for these extensions will load from a separate .ini file located in /usr/local/etc/php/5.3/conf.d/
+# PHP 5.5 with intl support + memcache
+# The *.so files for these extensions will load from a separate .ini file located in /usr/local/etc/php/5.5/conf.d/
 brew tap josegonzalez/homebrew-php
-brew install php54-intl --with-mysql --with-imap
-brew install php54-memcache
-install_template php/php.ini.template /usr/local/etc/php/5.4/php.ini
+brew install php55 --with-apache --with-mysql --with-imap
+brew install php55-intl
+brew install php55-memcache
+install_template php/php.ini.template /usr/local/etc/php/5.5/php.ini
 
 # PEAR with PHPUnit and CodeSniffer
-sudo pear config-set auto_discover 1
-sudo pear update-channels
-sudo pear upgrade
-sudo pear channel-discover pear.phpunit.de
-sudo pear install PHP_Codesniffer
+#sudo pear config-set auto_discover 1
+#sudo pear update-channels
+#sudo pear upgrade
+#sudo pear channel-discover pear.phpunit.de
+#sudo pear install PHP_Codesniffer
 
 # oauth and apc
-sudo pecl install oauth
-sudo pecl install apc
+#sudo pecl install oauth
+#sudo pecl install apc
 
 # Use Mac OS X's apache, but install a custom conf
-PHP_VERSION=`/usr/local/bin/php -v | awk '{print $2}' | head -1`
+PHP_DIR=`brew info php55 | awk '{print $1}' | grep /usr/local/Cellar`
 install_template_as_root apache/httpd.conf.template /etc/apache2/httpd.conf
-sed -i '' "s/{{PHP_VERSION}}/$PHP_VERSION/" $CURRENTDIR/apache/httpd.conf
+sed -i '' "s,{{PHP_DIR}},$PHP_DIR," $CURRENTDIR/apache/httpd.conf
 
 # Install POW so we can use project.company.dev without editing /etc/hosts
 curl get.pow.cx | sh
