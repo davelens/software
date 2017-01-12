@@ -30,9 +30,11 @@ install_template php/php.ini.template /usr/local/etc/php/5.5/php.ini
 #sudo pecl install oauth
 #sudo pecl install apc
 
-# Use Mac OS X's apache, but install a custom conf
+# We install PHP5.5 through brew, which includes apache2 under the httpd24
+# alias. This means we have to put our httpd.conf in the correct Homebrew
+# pkg folder.
 PHP_DIR=`brew info php55 | awk '{print $1}' | grep /usr/local/Cellar`
-install_template_as_root apache/httpd.conf.template /etc/apache2/httpd.conf
+install_template_as_root apache/httpd.conf.template $(brew --prefix)/etc/apache2/2.4/httpd.conf
 sed -i '' "s,{{PHP_DIR}},$PHP_DIR," $CURRENTDIR/apache/httpd.conf
 
 # Install POW so we can use project.company.dev without editing /etc/hosts
