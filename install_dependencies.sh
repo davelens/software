@@ -17,28 +17,23 @@ if [[ $(which brew) == "" ]]; then
   echo "Installing Homebrew..."
   echo "$(tput sgr0)"
 
-  /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew doctor
   brew update
   brew upgrade
-
-  # Install CLI tools
-  if [[ $(which gcc) != "" ]]; then
-    brew tap homebrew/versions
-    brew install gcc48
-  fi
 
   # Install brew-cask
   brew tap caskroom/cask
 
   # Install the git and compilation dependencies & tools
-  brew tap homebrew/dupes
-  brew install autoconf automake
+  brew install autoconf automake cmake
   brew install libtool libyaml libxml2 libxslt libksba openssl sqlite
-  brew install mercurial
-  brew install git
-  brew install cmake
-  brew install wget
-  brew install hub
+  brew install mercurial git hub
+  brew install ack wget fzf the_silver_searcher fd
+  brew install youtube-dl irssi
   brew install bash-completion
+
+  # alt is a CLI tool to help find an alternate path for a given path.
+  brew tap "uptech/homebrew-oss"
+  brew install uptech/oss/alt
 fi
