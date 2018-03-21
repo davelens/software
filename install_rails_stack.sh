@@ -28,8 +28,13 @@ gem install bundler
 # This fixes the issue described here: https://github.com/rmagick/rmagick/issues/36
 brew install imagemagick@6 --disable-openmp
 
-# Install POW so we can use project.dev after symlinking
-curl get.pow.cx | sh
+# Our local webserver
+gem install puma
+brew install puma/puma/puma-dev
+sudo puma-dev -setup
+## This line configures Puma to use .test and the ~/.pow dir for project
+## symlinks. This is intended to have a more seamless transition from POW.
+puma-dev -install -d test -dir ~/.pow/
 
 echo "$(tput setaf 10)"
 echo "Finished installing rbenv, Ruby, and Rails!"
