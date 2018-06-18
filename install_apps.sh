@@ -19,4 +19,5 @@ if [ $(lowercase $install_apps) == "y" ]; then
   brew cask install unrarx
   brew cask install vlc
   brew cask install spectacle
+  brew cask install tunnelblick
 fi
