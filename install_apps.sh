@@ -11,11 +11,12 @@ read install_apps
 if [ $(lowercase $install_apps) == "y" ]; then
   echo 'Now would be a good time to grab a coffee, this will probably take a while.'
   brew cask install alfred
-  brew cask install firefox
+  brew cask install firefox chrome
   brew cask install iterm2
   brew cask install 1password
   brew cask install libreoffice
   brew cask install spotify
   brew cask install unrarx
   brew cask install vlc
+  brew cask install spectacle
 fi
