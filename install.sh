@@ -4,13 +4,12 @@
 . install_dependencies.sh
 
 # Install misc. software
-brew install reattach-to-user-namespace
-brew install tmux
-brew install irssi
-brew install ack
-brew install vim
+brew install reattach-to-user-namespace tmux irssi ack vim
+
+# rbenv, ruby-build, bundler, imagemagick@6
+. install_ruby.sh
 
 # Query the user if he/she wants to download/install additional apps
 . install_apps.sh
 
-echo "$(tput setaf 10)Done.$(tput sgr0)"
+echo $(tput setaf 2)'Done!'
