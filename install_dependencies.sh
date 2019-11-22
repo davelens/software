@@ -12,20 +12,6 @@ echo "$(tput setaf 7)Installing Homebrew..."
 brew doctor
 brew update
 brew upgrade
-
-# Install brew-cask
-brew tap caskroom/cask
-
-# Install the git and compilation dependencies & tools
-brew install autoconf automake cmake
-brew install libtool libyaml libxml2 libxslt libksba openssl sqlite
-brew install mercurial git hub
-brew install ack wget fzf the_silver_searcher fd
-brew install youtube-dl irssi
-brew install bash-completion
-
-# alt is a CLI tool to help find an alternate path for a given path.
-brew tap "uptech/homebrew-oss"
-brew install uptech/oss/alt
+brew bundle install
 
 echo "$(tput setaf 2)Homebrew installation complete!"
