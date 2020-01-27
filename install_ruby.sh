@@ -18,6 +18,11 @@ rbenv global 2.4.4 --default
 gem install bundler
 bundle # Process the Gemfile included in this repo.
 
+# NOTE: Remember that if you have issues with the mysql2 gem, it's probably
+# because it cannot find the openssl lib. You need to explicitly pass LD/CPP
+# flags to get it to compile.
+#bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include"
+
 # --disable-openmp fixes the issue described here: https://github.com/rmagick/rmagick/issues/36
 brew install imagemagick@6 --disable-openmp
 
