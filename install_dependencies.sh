@@ -14,4 +14,6 @@ brew update
 brew upgrade
 brew bundle install
 
-echo "$(tput setaf 2)Homebrew installation complete!"
+echo "$(tput setaf 7)Installing davelens/dotfiles"
+git clone git@github.com:davelens/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles && ./install.sh
